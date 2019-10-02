@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      .background {
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body class="bg-dark text-light">
+    <div class="background">
+      <div class="container text-center mx-auto text-light">
+        <div class="row">
+          <div class="col">
+            <div class="jumbotron jumbotron-fluid bg-dark my-1">
+              <div class="container">
+                <h1 class="display-4">Hi!</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="py-2 d-flex justify-content-center">
+              <input class="form-control form-control col-sm-5 text-center" type="text" placeholder="Ticker Symbol (eg. MCD)" id="ticker">
+            </div>
+            <div>
+              <button type="button" onClick="morningstar()" class="btn btn-outline-light">Morningstar</button>
+              <button type="button" onClick="finviz()" class="btn btn-outline-light">Finviz</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="jumbotron jumbotron-fluid bg-dark mb-0">
+              <div class="container" hidden id="q1">
+                <h1 class="display-5">THE HAPPIEST</h1>
+                <p class="fluid">people do not necessarily have the best</p>
+                <h1 class="display-5">THINGS.</h1>
+                <p class="fluid">They simply appreciate the things they have.</p>
+                <p class="fluid">- Warren Buffet</p>
+              </div>
+
+              <div class="container" hidden id="q2">
+                <p class="fluid">The financial markets are where wealth are transferred</p>
+                <p class="fluid">from the ignorant and emotional to the competent and rational.</p>
+                <p class="fluid">- Adam Khoo</p>
+              </div>
+
+              <div class="container" hidden id="q3">
+                <p class="fluid">You do things when opportunities come along.</p>
+                <p class="fluid">I've had periods in my life when I've had a bundle of ideas come along, and I've had long dry spells.</p>
+                <p class="fluid">If I get an idea next week, I'll do something.</p>
+                <h1 class="display-5">If not, I won't do a damn thing.</h1>
+                <p class="fluid">- Warren Buffet</p>
+              </div>
+
+              <div class="container" hidden id="q4">
+                <p class="fluid">We simply attempt to be</p>
+                <h1 class="display-5">FEARFUL</h1>
+                <p class="fluid">when others are greedy and to be</p>
+                <h1 class="display-5">GREEDY</h1>
+                <p class="fluid">when others are fearful.</p>
+                <p class="fluid">- Warren Buffet</p>
+              </div>
+
+              <div class="container" hidden id="q5">
+                <p class="fluid">Rule No.1: Never lose money,</p>
+                <p class="fluid">Rule No.2: Never forget Rule No.1</p>
+                <p class="fluid">- Warren Buffet</p>
+              </div>
+
+              <div class="container" hidden id="q6">
+                <p class="fluid">No matter how great the talent or efforts, some things just take time.</p>
+                <p class="fluid">You can't produce a baby in one month by getting nine women pregnant.</p>
+                <p class="fluid">- Warren Buffet</p>
+              </div>
+
+              <div class="container" hidden id="q7">
+                <h1 class="display-5">PRICE</h1>
+                <p class="fluid">is what you pay.</p>
+                <h1 class="display-5">VALUE</h1>
+                <p class="fluid">is what you get.</p>
+                <p class="fluid">- Warren Buffet</p>
+            </div>
+          </div>  
+        </div>
+      </div>
+      <footer>
+        <div class="row">
+          <div class="col">
+            If you want to see more content, do submit your idea to <a href="" class="text-decoration-none text-success" id="myemail">me</a>.
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max)) + 1;
+      }
+
+      (function() {
+        const id = `q${getRandomInt(7)}`
+        const selectedQuote = document.getElementById(id);
+        selectedQuote.hidden = false;
+      }());
+
+      (function() {
+        const username = "eatsleepnbreathe+tradingweb";
+        const mailhost = "gmail.com";
+        const email = `${username}@${mailhost}`;
+        const emailLink = `mailto:${email}`;
+
+        const emailEl = document.getElementById("myemail");
+        emailEl.href = emailLink;
+      }());
+
+      function morningstar() {
+        let ticker = document.getElementById('ticker').value;
+
+        if (ticker) {
+          const url = (`https://financials.morningstar.com/income-statement/is.html?t=${ticker}&culture=en-US&platform=sal`);
+          window.open(url, 'morningstar');
+        }
+      }
+
+      function finviz() {
+        let ticker = document.getElementById('ticker').value;
+
+        if (ticker) {
+          const url = (`https://finviz.com/quote.ashx?t=${ticker}`);
+          window.open(url, 'finviz');
+        }
+      }
+  </script>
+</html>

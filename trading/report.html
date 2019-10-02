@@ -1,0 +1,37 @@
+<html>
+  <script type="text/javascript">
+      function morningstar() {
+        let ticker = document.getElementById('ticker').value;
+
+        if (ticker) {
+          const url = (`https://developer.morningstar.com/components/morningstar-stock-report-signature-version/fulldemo`);
+          console.log('url', url);
+          document.getElementById("content").src = url;
+
+        }
+      }
+
+      function finviz() {
+        let ticker = document.getElementById('ticker').value;
+
+        if (ticker) {
+          const url = (`https://finviz.com/quote.ashx?t=${ticker}`);
+          console.log('url', url);
+          window.open(url, 'finviz');
+        }
+      }
+  </script>
+  <body>
+    <div>
+      <label>Ticker</label>
+      <input id="ticker"/>
+    </div>
+    <div>
+      <input type="button" onClick="morningstar()" value="Morningstar" />
+      <input type="button" onClick="finviz()" value="Finviz" />
+    </div>
+    <iframe id="content">
+
+    </div>
+  </body>
+</html>
