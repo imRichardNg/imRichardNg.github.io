@@ -1,0 +1,37 @@
+<html>
+<script type="text/javascript">
+  function whatToEat(isLazyToThink = false) {
+    const listOfFood = [
+      "Siobak peng",
+      "Chicken rice",
+      "Maggie mee",
+      "Bak chor mee",
+      "Fried kway teow",
+    ];
+
+    const random = Math.round(Math.random() * 100);
+
+    let food = null;
+    if (isLazyToThink === true) {
+      food = listOfFood[0];
+    } else {
+      food = listOfFood[random % listOfFood.length]
+    }
+
+    document.getElementById("content").innerHTML = food;
+  }
+</script>
+
+<body>
+  <div>
+    <label>What To Eat?</label>
+  </div>
+  <div>
+    <input type="button" onClick="whatToEat()" value="Generate!" />
+  </div>
+  <div>
+    <span id="content"></span>
+  </div>
+</body>
+
+</html>
