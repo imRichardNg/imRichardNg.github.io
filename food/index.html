@@ -30,21 +30,48 @@
       food = listOfFood[random % listOfFood.length]
     }
 
+    document.getElementById("foodDiv").style.visibility = "visible";
     document.getElementById("content").innerHTML = food;
+  }
+
+  function findDessert() {
+    const dessert = [
+      "Ice cream",
+      "Fruits",
+      "Chocolate",
+      "Biscuit",
+      "Wine",
+      "Prata",
+      "Siobak!"
+    ];
+
+    const random = Math.round(Math.random() * dessert.length * 1000) % dessert.length;
+    document.getElementById("dessertDiv").style.visibility = "visible";
+    document.getElementById("dessertContent").innerHTML = dessert[random];
   }
 </script>
 
 <body>
   <div>
-    <label>What To Eat?</label>
+    <span>What To Eat?</span>
+    <span><input type="button" onClick="whatToEat()" value="Find me fooooooood now!" /></span>
   </div>
-  <div>
-    <input type="button" onClick="whatToEat()" value="I'm Lucky!" />
-  </div>
-  <div>
+  <div style="visibility:hidden" id="foodDiv">
     <p>
       <span>It's a good day to eat....</span>
       <span id="content"></span>
+    </p>
+  </div>
+  <div>
+    <p>
+      <span>Or maybe... a dessert?</span>
+      <span><input type="button" onClick="findDessert()" value="Find dessert." /></span>
+    </p>
+  </div>
+  <div style="visibility:hidden" id="dessertDiv">
+    <p>
+      <span>Let's have </span>
+      <span id="dessertContent"></span>
     </p>
   </div>
 </body>
